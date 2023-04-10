@@ -53,5 +53,11 @@ app.get('/jokes', (req, res) => {
 app.post('/jokes', (req,res) => {
   console.log('POST /jokes request received!');
   console.log(req.body);
+
+  let newJoke = req.body;
+
+  //Add the newJoke object to the jokesArray
+  jokesArray.push(newJoke)
+
   res.sendStatus(201);
 })//End POST /jokes

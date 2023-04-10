@@ -58,6 +58,9 @@ function postJoke(event) {
             console.log('error:', error);
         }
     )
+
+    //Get updated jokesArray from server
+    getJokesHistory();
     
 }
 
