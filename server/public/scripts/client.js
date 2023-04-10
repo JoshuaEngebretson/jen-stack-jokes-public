@@ -51,35 +51,45 @@ function postJoke(event) {
     event.preventDefault();
     console.log('in postJoke');
 
-    //Create a newJoke object with the current
-    //  value of each input field.
-    let newJoke = {
-        whoseJoke: $('#whoseJokeIn').val(),
-        jokeQuestion: $('#questionIn').val(),
-        punchLine: $('#punchlineIn').val()
-    }
+    //Create easier to read variables for each
+    //  instance of jQuery targetting an id
+    let who = $('#whoseJokeIn');
+    let question = $('#questionIn');
+    let punchLine = $('#punchlineIn');
 
-    //Empty out the values of the 3 inputs
-    $('#whoseJokeIn').val('');
-    $('#questionIn').val('');
-    $('#punchlineIn').val('');
-
-
-    $.ajax({
-        method: 'POST',
-        url: '/jokes',
-        data: newJoke,
-    }).then(
-        function(response){
-            console.log('POST /jokes call successful!');
-            console.log('response:', response);
+    //Only allow submit when ALL fields are filled in
+    if (who.val() !== '' && question.val() !== '' && punchLine.val() !== '') {
+        
+        //Create a newJoke object with the current
+        //  value of each input field.
+        let newJoke = {
+            whoseJoke: who.val(),
+            jokeQuestion: question.val(),
+            punchLine: punchLine.val()
         }
-    ).catch(
-        function(error){
-            console.log('POST /jokes call failed');
-            console.log('error:', error);
-        }
-    )
+
+        //Empty out the values of the 3 inputs
+        who.val('');
+        question.val('');
+        punchLine.val('');
+
+
+        $.ajax({
+            method: 'POST',
+            url: '/jokes',
+            data: newJoke,
+        }).then(
+            function(response){
+                console.log('POST /jokes call successful!');
+                console.log('response:', response);
+            }
+        ).catch(
+            function(error){
+                console.log('POST /jokes call failed');
+                console.log('error:', error);
+            }
+        )//End ajax POST request to /jokes
+    }//End if All fields are filled in
 
     //Get updated jokesArray from server
     getJokesHistory();
