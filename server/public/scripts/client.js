@@ -1,4 +1,4 @@
-console.log('client.js sourced');
+// console.log('client.js sourced');
 
 $( document ).ready( onReady );
 
@@ -9,7 +9,7 @@ function onReady() {
     getJokesHistory();
 
     //Click listener for when 'Add Joke' is clicked
-    $('#addJokeButton').on('click', postJoke)
+    $('#addJokeButton').on('click', addJoke)
 
 }
 
@@ -20,8 +20,8 @@ function getJokesHistory(){
         url: '/jokes',
     }).then(
         function (response) {
-            console.log('GET /jokes call successful!');
-            console.log('response:', response);
+            // console.log('GET /jokes call successful!');
+            // console.log('response:', response);
             let jokesArray = response;
 
             $('#outputDiv').empty();
@@ -40,16 +40,20 @@ function getJokesHistory(){
         }
     ).catch(
         function(error){
-            console.log('GET /jokes call failed!');
+            // console.log('GET /jokes call failed!');
             console.log('error:', error);
         }
     )
 }
 
 
-function postJoke(event) {
+function addJoke(event) {
+
+    //Prevent the default reload of the page
+    //   when the button is clicked.
     event.preventDefault();
-    console.log('in postJoke');
+    
+    // console.log('in addJoke');
 
     //Create easier to read variables for each
     //  instance of jQuery targetting an id
@@ -73,25 +77,33 @@ function postJoke(event) {
         question.val('');
         punchLine.val('');
 
-
-        $.ajax({
-            method: 'POST',
-            url: '/jokes',
-            data: newJoke,
-        }).then(
-            function(response){
-                console.log('POST /jokes call successful!');
-                console.log('response:', response);
-            }
-        ).catch(
-            function(error){
-                console.log('POST /jokes call failed');
-                console.log('error:', error);
-            }
-        )//End ajax POST request to /jokes
+        //Call on postJokes with the parameter of newJoke
+        //   this will send the information to the server
+        //   via the /jokes http request
+        postJokes(newJoke);
+        
     }//End if All fields are filled in
 
     //Get updated jokesArray from server
     getJokesHistory();
     
 }
+
+
+function postJokes(newJoke){
+    $.ajax({
+        method: 'POST',
+        url: '/jokes',
+        data: newJoke,
+    }).then(
+        function(response){
+            // console.log('POST /jokes call successful!');
+            console.log('response:', response);
+        }
+    ).catch(
+        function(error){
+            // console.log('POST /jokes call failed');
+            console.log('error:', error);
+        }
+    )
+}//End ajax POST request to /jokes
