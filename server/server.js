@@ -17,21 +17,21 @@ let jokesArray = [
     jokeQuestion: "Two fish are in a tank. What did one fish say to the other?",
     punchLine: "Do you know how to drive this thing?"
   },
-  {
-    whoseJoke: "Millie",
-    jokeQuestion: "What do you call a pile of cats?",
-    punchLine: "A meowntain!"
-  },
-  {
-    whoseJoke: "dEv",
-    jokeQuestion: "Why should you not play cards in the forest?",
-    punchLine: "Too many Cheetahs!"
-  },
-  {
-    whoseJoke: "Scott",
-    jokeQuestion: "I went to the zoo the other day, it had one dog...",
-    punchLine: "It was a shih tzu."
-  }
+  // {
+  //   whoseJoke: "Millie",
+  //   jokeQuestion: "What do you call a pile of cats?",
+  //   punchLine: "A meowntain!"
+  // },
+  // {
+  //   whoseJoke: "dEv",
+  //   jokeQuestion: "Why should you not play cards in the forest?",
+  //   punchLine: "Too many Cheetahs!"
+  // },
+  // {
+  //   whoseJoke: "Scott",
+  //   jokeQuestion: "I went to the zoo the other day, it had one dog...",
+  //   punchLine: "It was a shih tzu."
+  // }
 ];
 
 // serve back static files

@@ -22,7 +22,21 @@ function getJokesHistory(){
         function (response) {
             console.log('GET /jokes call successful!');
             console.log('response:', response);
+            let jokesArray = response;
+
+            $('#outputDiv').empty();
+
             //What do we do with the response
+            for (let joke of jokesArray){
+                $('#outputDiv').append(`
+                    <p>Joke by: ${joke.whoseJoke}</p>
+                    <ul>
+                        <li>Question: ${joke.jokeQuestion}</li>
+                        <li>Punch line: ${joke.punchLine}</li>
+                    </ul>
+                `)
+            }
+
         }
     ).catch(
         function(error){
@@ -63,4 +77,3 @@ function postJoke(event) {
     getJokesHistory();
     
 }
-
