@@ -16,6 +16,7 @@ function getJokesHistory(){
     }).then(
         function (response) {
             console.log('GET /jokes call successful!');
+            console.log('response:', response);
         }
     ).catch(
         function(error){
@@ -24,3 +25,4 @@ function getJokesHistory(){
         }
     )
 }
+
