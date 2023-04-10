@@ -40,3 +40,16 @@ app.use(express.static('server/public'));
 app.listen(PORT, () => {
   console.log('server running on: ', PORT);
 }); // end spin up server
+
+
+//Routes go here
+app.get('/jokes', (req, res) => {
+  console.log('GET /jokes request received!');
+  // res.send(jokesArray);
+})
+
+
+app.post('/jokes', (req,res) => {
+  console.log('POST /jokes request received!');
+  res.sendStatus(201);
+})
