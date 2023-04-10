@@ -51,5 +51,6 @@ app.get('/jokes', (req, res) => {
 
 app.post('/jokes', (req,res) => {
   console.log('POST /jokes request received!');
+  console.log(req.body);
   res.sendStatus(201);
 })
