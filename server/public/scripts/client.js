@@ -51,11 +51,19 @@ function postJoke(event) {
     event.preventDefault();
     console.log('in postJoke');
 
+    //Create a newJoke object with the current
+    //  value of each input field.
     let newJoke = {
         whoseJoke: $('#whoseJokeIn').val(),
         jokeQuestion: $('#questionIn').val(),
         punchLine: $('#punchlineIn').val()
     }
+
+    //Empty out the values of the 3 inputs
+    $('#whoseJokeIn').val('');
+    $('#questionIn').val('');
+    $('#punchlineIn').val('');
+
 
     $.ajax({
         method: 'POST',
