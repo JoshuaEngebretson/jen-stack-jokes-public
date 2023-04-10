@@ -45,7 +45,7 @@ app.listen(PORT, () => {
 //Routes go here
 app.get('/jokes', (req, res) => {
   console.log('GET /jokes request received!');
-  // res.send(jokesArray);
+  res.send('GET request worked!');
 })
 
 
