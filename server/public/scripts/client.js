@@ -38,9 +38,9 @@ function postJoke(event) {
     console.log('in postJoke');
 
     let newJoke = {
-        whoseJoke: "test",
-        jokeQuestion: "Test joke Question",
-        punchLine: "Test joke punchline"
+        whoseJoke: $('#whoseJokeIn').val(),
+        jokeQuestion: $('#questionIn').val(),
+        punchLine: $('#punchlineIn').val()
     }
 
     $.ajax({

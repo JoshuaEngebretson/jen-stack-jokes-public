@@ -43,14 +43,15 @@ app.listen(PORT, () => {
 
 
 //Routes go here
+
 app.get('/jokes', (req, res) => {
   console.log('GET /jokes request received!');
   res.send(jokesArray);
-})
+})//End GET /jokes
 
 
 app.post('/jokes', (req,res) => {
   console.log('POST /jokes request received!');
   console.log(req.body);
   res.sendStatus(201);
-})
+})//End POST /jokes
